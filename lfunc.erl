@@ -1,5 +1,8 @@
 -module(lfunc).
--export([product_d/1, product_t/1, maximum_d/1, maximum_t/1, maximum/1]).
+-export([product_d/1, product_t/1, maximum_d/1, maximum_t/1, maximum/1, double/1]).
+
+double([]) -> [];
+double([X|Xs]) -> [2*X|double(Xs)].
 
 % empty list should get the "zero-element" for product.
 product_d([]) ->
