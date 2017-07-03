@@ -1,5 +1,14 @@
 -module(lfunc).
--export([product_d/1, product_t/1, maximum_d/1, maximum_t/1, maximum/1, double/1]).
+-export([product_d/1, product_t/1, maximum_d/1, maximum_t/1, maximum/1, double/1, even/1]).
+
+even([]) -> [];
+%even([X|Xs]) when X rem 2 == 0 -> [X|even(Xs)];
+%even([X|Xs]) when X rem 2 == 1 -> even(Xs).
+even([X|Xs]) ->
+	case X rem 2 of
+		0 -> [X|even(Xs)];
+		1 -> even(Xs)
+	end.
 
 double([]) -> [];
 double([X|Xs]) -> [2*X|double(Xs)].
