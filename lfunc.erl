@@ -1,5 +1,5 @@
 -module(lfunc).
--export([product_d/1, product_t/1, maximum_d/1, maximum_t/1]).
+-export([product_d/1, product_t/1, maximum_d/1, maximum_t/1, maximum/1]).
 
 % empty list should get the "zero-element" for product.
 product_d([]) ->
@@ -10,6 +10,9 @@ product_d([X|Xs]) ->
 product_t(Xs) -> product_t(Xs, 1).
 product_t([], P) -> P;
 product_t([X|Xs], P) -> product_t(Xs, X*P).
+
+maximum([X]) -> X;
+maximum([X|Xs]) -> max(X, maximum(Xs)).
 
 maximum_d([X|Xs]) ->
 	case Xs of
